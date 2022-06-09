@@ -1,0 +1,44 @@
+<%- include("template/cabecera", {tituloWeb: 'Añadir Videojuego'}) %>
+    <div class="container">
+        <div class="card mt-4 px-5 pt-3 pb-3 bg-light bg-gradient border-primary">
+            <h1>Añadir Videojuego</h1>
+            <form action="/juegos" method="POST">
+                <input
+                type="text"
+                placeholder="Agregar nombre"
+                class="form-control my-2"
+                name="nombre">
+                <input
+                type="text"
+                placeholder="Agregar año de lanzamiento"
+                class="form-control my-2"
+                name="año">
+                <input
+                type="text"
+                placeholder="Agregar genero"
+                class="form-control my-2"
+                name="genero">
+                <input
+                type="text"
+                placeholder="Agregar Plataforma"
+                class="form-control my-2"
+                name="plataformas">
+                <input
+                type="text"
+                placeholder="Agregar descripcion"
+                class="form-control my-2"
+                name="descripcion">
+                
+                <input
+                type="number"
+                placeholder="Agregar calificacion"
+                class="form-control my-2"
+                name="calificacion">
+                
+                <button class="btn btn-success btn-block" type="submit">Agregar</button>
+        </form>
+        </div>
+
+        
+    </div>
+<%- include("template/footer") %>
