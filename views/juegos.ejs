@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <%- include("template/cabecera", {tituloWeb: 'Lista de Videojuegos'}) %>
     
     <div class="container mt-4 mb-4">
@@ -28,7 +29,7 @@
                                 <td><%= juego.genero %></td>
                                 <td><%= juego.plataformas %></td>
                                 <td><%= juego.descripcion %></td>
-                                <td><%= juego.calificacion %></td>
+                                <td><span class="fa fa-star"></span><%= juego.calificacion/20 %></td>
                                 <td><a href="juegos/<%=juego.id%>" class="btn btn-warning btn-sm">Editar</a></td>
                                 <td><button
                                         class="btn btn-danger btn-sm"
