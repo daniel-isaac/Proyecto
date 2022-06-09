@@ -3,9 +3,51 @@
         <div class="card mt-4 px-5 pt-3 pb-3 bg-light bg-gradient border-primary">
             <h1>Añadir Videojuego</h1>
             
-        
+            <form id="formularioEditar" data-id="<%= juego.id %>">
+                <input type="text" class="form-control my-2" name="año" value="<%= juego.año %>">
+                <input type="text" class="form-control my-2" name="nombre" value="<%= juego.nombre %>">
+                <input type="text" class="form-control my-2" name="genero" value="<%= juego.genero %>">
+                <input type="text" class="form-control my-2" name="plataformas" value="<%= juego.plataformas %>">
+                <input type="text" class="form-control my-2" name="descripcion" value="<%= juego.descripcion %>">
+                <input type="number" class="form-control my-2" name="calificacion" value="<%= juego.calificacion %>">
+                <button class="btn btn-warning btn-block" type="submit">Guardar</button>
+            </form>
         </div>
 
         
     </div>
 <%- include("template/footer") %>
+<script>
+    const formularioEditar = document.querySelector('#formularioEditar');
+    formularioEditar.addEventListener('submit', async(e) =>{
+        e.preventDefault();
+        const id = formularioEditar.dataset.id;
+        const año = formularioEditar.elements['año'].value;
+        const nombre = formularioEditar.elements['nombre'].value;
+        const genero = formularioEditar.elements['genero'].value;
+        const plataformas = formularioEditar.elements['plataformas'].value;
+        const descripcion= formularioEditar.elements['descripcion'].value;
+        const calificacion = formularioEditar.elements['calificacion'].value;
+        console.log(id,año,nombre,genero,plataformas,descripcion,calificacion);
+
+        try {
+            const data = await fetch(`/juegos/${id}`, {
+            method:'put', 
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                año,nombre,genero,plataformas,descripcion,calificacion
+            })});
+            const res = await data.json()
+            console.log(res);
+            if(res.estado){
+                window.location.href = '/juegos'
+            } else{
+                console.log(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    })
+</script>
