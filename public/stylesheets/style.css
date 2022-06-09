@@ -2,6 +2,7 @@
 body{
     background: url("../images/fondoDF.jpg") no-repeat center fixed;
     background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .navbar{
     background-color: rgba(0, 0, 0, .8)
