@@ -9,6 +9,12 @@ router.get('/', (req, res) => {
 router.get('/descarga', function(req, res){
     const file = `${__dirname}/../Proyecto.zip`;
     res.download(file); 
+    //res.redirect('/descarga2');
+});
+
+router.get('/descarga2', function(req,res){
+    const file = `${__dirname}/../Proyecto.zip.sha256`;
+    res.download(file); 
 });
 
 module.exports = router;
